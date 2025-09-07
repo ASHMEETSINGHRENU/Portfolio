@@ -6,7 +6,7 @@ import Navbar from '../components/navbar';
 import Footer from "../components/footer";
 
 const Resume = () => {
-  const pdfFile = "/portfolio.pdf"; // Place this inside client/public/
+  const pdfFile = "/Resume.pdf"; 
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100">
@@ -36,7 +36,7 @@ const Resume = () => {
           {/* Download PDF */}
           <a
             href={pdfFile}
-            download="My_Portfolio.pdf"
+            download="My_Resume.pdf"
             className="px-6 py-3 bg-blue-600 text-white font-medium rounded-xl shadow-lg hover:bg-blue-700 transition w-full sm:w-auto text-center"
           >
             Download PDF

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Typewriter from 'typewriter-effect';
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaCode, FaDatabase, FaServer, FaInstagram } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaCode, FaDatabase, FaServer, FaInstagram } from 'react-icons/fa';
 import { Download } from "lucide-react"; 
 import Navber from '../components/navbar';
 import Footer from '../components/footer';
@@ -93,7 +93,7 @@ const Home = () => {
               className="mt-6 md:mt-8 flex justify-center md:justify-start space-x-3 md:space-x-4"
             >
               <a href="/resume" className="bg-indigo-600 hover:bg-indigo-700 px-5 py-2 md:px-6 md:py-3 rounded-lg font-medium transition-colors text-white text-sm md:text-base">
-                Resume
+                ATS Resume
               </a>
               <a href="/projects" className="border border-gray-300 hover:border-indigo-600 px-5 py-2 md:px-6 md:py-3 rounded-lg font-medium transition-colors text-sm md:text-base">
                 View Projects
