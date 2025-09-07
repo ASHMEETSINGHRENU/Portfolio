@@ -58,39 +58,6 @@ const Resume = () => {
       <Footer />
 
 
-
-<h2 className="relative inline-block text-2xl font-semibold text-gray-800 
-   after:content-[''] after:block after:w-0 after:h-[2px] after:bg-red-500 after:mx-auto
-   after:transition-all after:duration-500 hover:after:w-full">
-   Center Out Underline
-</h2>
-
-
-<h2 className="relative inline-block text-1xl font-semibold text-gray-800 
-   after:content-[''] after:block after:w-0 after:h-[3px] after:bg-gradient-to-r after:from-pink-500 after:to-purple-600 
-   after:transition-all after:duration-700 hover:after:w-full">
-   Gradient Underline
-</h2>
-
-
-
-
-
-<h2 className="relative inline-block text-2xl font-semibold text-gray-800 
-   after:content-[''] after:block after:w-0 after:h-[2px] after:bg-blue-600 
-   after:transition-all after:duration-500 hover:after:w-full">
-   Animated Underline
-</h2>
-
-
-
-
-
-
-      
-
-
-
     </div>
   );
 };
