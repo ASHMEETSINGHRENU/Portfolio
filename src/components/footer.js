@@ -33,8 +33,8 @@ const Footer = () => {
               <Mail size={18} /> ashmeetsingh022@example.com
             </p>
             <p className="mt-2">📞 +91 7083583127</p>
-            <a href="https://ashmeetsingh022.wixsite.com/as-digital-store" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500 hover:scale-110 transition-transform">
-            <p className="mt-2"> 🌐 WIX </p></a>
+            <a href="https://frontend-workwagon.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500 hover:scale-110 transition-transform">
+            <p className="mt-2"> 🌐 WorkWagon </p></a>
             <p className="mt-2">📍 Pune, India</p>
           </div>
 
