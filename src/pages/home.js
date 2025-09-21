@@ -82,7 +82,7 @@ const Home = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="mt-4 md:mt-6 text-base md:text-lg text-gray-600 max-w-md text-center md:text-left mx-auto md:mx-0"
             >
-              I am a passionate Full-Stack Developer with expertise in building scalable web Applications and integrating AI & Machine Learning solutions.
+            Currently pursuing a semester-long Mobility Program at INTI International University, Malaysia. This global exposure is expanding my technical expertise.
             </motion.p>
 
             {/* Buttons */}
