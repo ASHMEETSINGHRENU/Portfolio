@@ -12,7 +12,7 @@ const Project = () => {
       description:
         "WorkWagon is a freelancing platform that connects clients with skilled freelancers. Clients can hire experts for services like web development, logo design, and SEO, while freelancers can showcase their profiles, offer services, and earn by completing projects. The platform ensures a smooth, user-friendly, and reliable collaboration experience.",
       tech: "Front-end: React.js and Tailwind CSS / Back-end: Node.js with APIs / DB: MongoDB",
-      link: "https://github.com/ASHMEETSINGHRENU/frontend-workwagon",
+      link: "https://frontend-workwagon.vercel.app/",
     },
     {
       id: 2,
@@ -51,7 +51,7 @@ const Project = () => {
       <div className="flex-grow flex flex-col items-center justify-center p-6">
         {/* Heading */}
 <h1
-  className="relative inline-block font-nunito text-4xl md:text-5xl font-bold text-gray-800 mb-4 mt-16
+  className="relative inline-block font-playfair text-4xl md:text-5xl font-bold text-gray-800 mb-4 mt-16
   after:content-[''] after:block after:w-0 after:h-[3px] after:bg-gradient-to-r after:from-pink-500 after:to-purple-600 
   after:transition-all after:duration-700 hover:after:w-full"
 >
@@ -98,7 +98,7 @@ const Project = () => {
                   rel="noopener noreferrer"
                   className="mt-auto px-5 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition text-center"
                 >
-                  View on GitHub
+                  View on Github / Website
                 </a>
               </div>
             </div>

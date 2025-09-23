@@ -16,6 +16,10 @@ module.exports = {
         nunito: ["Nunito", "sans-serif"],
         merriweather: ["Merriweather", "serif"],
         raleway: ["Raleway", "sans-serif"],
+        robotoCondensed: ['"Roboto Condensed"', 'sans-serif'],
+        playfair: ['"Playfair Display"', 'serif'],
+        bodoni: ['"Bodoni Moda"', 'serif'],
+
       },
     },
   },

@@ -41,7 +41,7 @@ const Certificate = () => {
       <div className="flex-grow flex flex-col items-center justify-center p-6">
         {/* Heading */}
       <h1
-  className="relative inline-block font-nunito text-4xl md:text-5xl font-bold text-gray-800 mb-10 mt-16
+  className="relative inline-block font-playfair text-4xl md:text-5xl font-bold text-gray-800 mb-10 mt-16
   after:content-[''] after:block after:w-0 after:h-[3px] after:bg-gradient-to-r after:from-pink-500 after:to-purple-600 
   after:transition-all after:duration-700 hover:after:w-full"
 >

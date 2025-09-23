@@ -11,7 +11,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-gray-900 via-gray-900 to-gray-800 shadow-md">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
         {/* Logo */}
-        <div className="text-2xl font-bold text-blue-500">Portfolio</div>
+        <div className="font-bodoni text-2xl font-bold text-blue-500">Portfolio</div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-8 text-white font-medium">

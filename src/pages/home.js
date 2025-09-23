@@ -156,7 +156,7 @@ const Home = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="text-3xl font-bold text-center mb-12 font-nunito
+            className="font-playfair text-3xl font-bold text-center mb-12
             after:content-[''] after:block after:w-0 after:h-[3px] 
       after:bg-gradient-to-r after:from-pink-500 after:to-purple-600 after:mx-auto
       after:transition-all after:duration-700 hover:after:w-full"
@@ -210,7 +210,7 @@ const Home = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="text-3xl font-bold text-center mb-16 font-nunito
+            className="font-playfair text-3xl font-bold text-center mb-16
             after:content-[''] after:block after:w-0 after:h-[3px] 
       after:bg-gradient-to-r after:from-pink-500 after:to-purple-600 after:mx-auto
       after:transition-all after:duration-700 hover:after:w-full"
@@ -335,7 +335,7 @@ const Home = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className="text-3xl font-bold text-center mb-4 font-nunito             
+      className="font-playfair text-3xl font-bold text-center mb-4
       after:content-[''] after:block after:w-0 after:h-[3px] 
       after:bg-gradient-to-r after:from-pink-500 after:to-purple-600 after:mx-auto
       after:transition-all after:duration-700 hover:after:w-full"
@@ -432,43 +432,47 @@ const Home = () => {
 
 {/* Internship Section */}
 <section id="internship" className="py-16  from-blue-50 to-purple-50">
-  <h2 className="text-4xl font-bold text-center mb-6  font-nunito
+  <h2 className="text-4xl font-bold text-center mb-6  font-playfair
       after:content-[''] after:block after:w-0 after:h-[3px] 
       after:bg-gradient-to-r after:from-pink-500 after:to-purple-600 after:mx-auto
       after:transition-all after:duration-700 hover:after:w-full">Internship</h2>
-  <p className="text-center text-gray-700 mb-12 max-w-3xl mx-auto">
-    Through internships, I gained real-world exposure to front-end, back-end, RESTful APIs, and database connectivity.
-    These experiences not only enhanced my technical skills but also ignited my drive to excel in my career.
-  </p>
+<p className="text-center text-gray-700 mb-12 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 leading-relaxed text-lg">
+  Through internships, I gained real-world exposure to front-end, back-end, RESTfulAPIs, and database connectivity.<br />
+  These experiences not only enhanced my technical skills but also ignited my drive to excel in my career.
+</p>
 
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-6xl mx-auto px-6">
-    {internships.map((item) => (
-      <div
-        key={item.id}
-        className="relative group bg-white/30 backdrop-blur-lg shadow-xl rounded-2xl overflow-hidden transition-transform hover:scale-[1.02]"
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-6xl mx-auto px-6">
+  {internships.map((item) => (
+    <div
+      key={item.id}
+      className="relative group rounded-2xl overflow-hidden transition-transform hover:scale-[1.02]"
+    >
+      {/* Internship Image */}
+      <img
+        src={item.img}
+        alt={`${item.title} ${item.id}`}
+        className="w-full h-auto object-contain"
+      />
+
+      {/* Download Button */}
+      <a
+        href={item.pdf}
+        download={`${item.title.replace(/\s+/g, '_')}.pdf`}
+        className="absolute top-4 right-4 bg-blue-600 text-white p-2 rounded-full shadow-md opacity-80 hover:opacity-100 transition"
       >
-        {/* Internship Image */}
-        <img
-          src={item.img}
-          alt={`${item.title} ${item.id}`}
-          className="w-full h-auto object-contain rounded-2xl"
-        />
+        <Download className="w-5 h-5" />
+      </a>
+    </div>
+  ))}
+</div>
 
-        {/* Download Button */}
-        <a
-          href={item.pdf}
-          download={`${item.title.replace(/\s+/g, '_')}.pdf`}
-          className="absolute top-4 right-4 bg-blue-600 text-white p-2 rounded-full shadow-md opacity-80 hover:opacity-100 transition"
-        >
-          <Download className="w-5 h-5" />
-        </a>
-      </div>
-    ))}
-  </div>
+
+
+
+
+
 </section>
-
-
-
 
       </main>
 
