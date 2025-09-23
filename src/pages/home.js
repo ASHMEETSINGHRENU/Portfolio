@@ -170,7 +170,7 @@ const Home = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="hidden md:block md:w-1/3 mb-8 md:mb-0 flex justify-center"
+              className="hidden md:flex md:w-1/3 mb-8 md:mb-0 justify-center"
             >
               <div className="w-56 h-56 rounded-full overflow-hidden border-4 border-indigo-500">
                 <img 
