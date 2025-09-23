@@ -92,11 +92,11 @@ const Navbar = () => {
             Projects
           </a>
           <a
-            href="#contact"
+            href="#"
             className="block hover:text-blue-500 transition-colors"
             onClick={toggleMenu}
           >
-            Contact
+            Mobility
           </a>
         </div>
       )}
