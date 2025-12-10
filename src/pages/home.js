@@ -354,6 +354,32 @@ const Home = () => {
       <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-indigo-500"></div>
 
       <div className="space-y-16">
+
+        {/* BCA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          viewport={{ once: true }}
+          className="relative flex items-center justify-between w-full"
+        >
+          {/* Empty left */}
+          <div className="w-5/12"></div>
+
+          {/* Dot */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-indigo-500 rounded-full border-4 border-white"></div>
+
+          {/* Right side */}
+          <div className="w-5/12 text-left">
+            <h3 className="text-xl font-semibold">Master Mobility Program </h3>
+            <p className="text-gray-700">
+             INTI International University, Nilai, Malaysia (2025 – Present)
+            </p>
+            <p className="text-gray-500">Location: Nilai, Malaysia</p>
+          </div>
+        </motion.div>
+
+
         {/* MCA */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
