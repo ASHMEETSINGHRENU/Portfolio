@@ -30,7 +30,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold text-white mb-3">Contact</h3>
             <p className="flex items-center gap-2">
-              <Mail size={18} /> ashmeetsingh022@example.com
+              <Mail size={18} /> ashmeetsingh022@gmail.com
             </p>
             <p className="mt-2">📞 +91 7083583127</p>
             <a href="https://frontend-workwagon.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500 hover:scale-110 transition-transform">
