@@ -18,7 +18,7 @@ const Resume = () => {
        <h1
   className="relative inline-block font-playfair text-4xl md:text-5xl font-bold text-gray-800 mb-8 mt-16 animate-fadeIn
   after:content-[''] after:block after:w-0 after:h-[3px] after:bg-gradient-to-r after:from-pink-500 after:to-purple-600 
-  after:transition-all after:duration-700 hover:after:w-full"> Resume / R2  </h1>
+  after:transition-all after:duration-700 hover:after:w-full"> Resume  </h1>
 
         {/* Resume Container */}
         <div className="w-full max-w-4xl bg-white/30 backdrop-blur-lg shadow-2xl rounded-2xl p-6 flex justify-center animate-fadeInSlow">
