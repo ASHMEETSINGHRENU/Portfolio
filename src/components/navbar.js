@@ -91,13 +91,6 @@ const Navbar = () => {
           >
             Projects
           </a>
-          <a
-            href="#"
-            className="block hover:text-blue-500 transition-colors"
-            onClick={toggleMenu}
-          >
-            Mobility
-          </a>
         </div>
       )}
     </nav>
