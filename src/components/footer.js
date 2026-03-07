@@ -45,7 +45,7 @@ const Footer = () => {
               <a href="https://github.com/ASHMEETSINGHRENU" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:scale-110 transition-transform"><Github size={24} /></a>
               <a href="https://www.linkedin.com/in/ashmeet-singh-renu-9a2a36275/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 hover:scale-110 transition-transform"><Linkedin size={24} /></a>
               <a href="https://www.instagram.com/ashmeetsingh022/" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500 hover:scale-110 transition-transform"><Instagram size={24} /></a>
-              <a href="mailto:ashmeetsingh022@example.com" className="hover:text-red-400 hover:scale-110 transition-transform"><Mail size={24} /></a>
+              {/* <a href="mailto:ashmeetsingh022@example.com" className="hover:text-red-400 hover:scale-110 transition-transform"><Mail size={24} /></a> */}
             </div>
           </div>
         </div>
