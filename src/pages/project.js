@@ -6,16 +6,24 @@ import Footer from "../components/footer";
 const Project = () => {
   const projects = [
     {
-      id: 1,
-      name: "WorkWagon - Freelancer Website",
-      img: require("../photos/freelance.png"), 
-      description:
-        "WorkWagon is a freelancing platform that connects clients with skilled freelancers. Clients can hire experts for services like web development, logo design, and SEO, while freelancers can showcase their profiles, offer services, and earn by completing projects. The platform ensures a smooth, user-friendly, and reliable collaboration experience.",
-      tech: "Front-end: React.js and Tailwind CSS / Back-end: Node.js with APIs / DB: MongoDB",
-      link: "https://frontend-workwagon.vercel.app/",
-    },
-    {
-      id: 2,
+  id: 1,
+  name: "InterviewReady – Technical Interview Learning Platform",
+  img: require("../photos/interviewready.png"),
+  description: "Interview Ready is a web platform designed to help students and job seekers prepare effectively for technical and professional interviews. The website provides structured interview questions, coding problems, and concept explanations in one place. It focuses on strengthening problem-solving skills and improving understanding of core technical topics. The platform offers a clean and user-friendly interface so users can easily navigate and practice. By using Interview Ready, candidates can build confidence, sharpen their knowledge, and become better prepared for real interview scenarios.",
+  tech: "Front-end: React.js and Tailwind CSS / Back-end: Node.js with APIs / DB: MongoDB",
+  link: "https://interview-r-frontend.vercel.app/",
+},
+ {
+  id: 2,
+  name: "WorkWagon - Freelancer Website",
+  img: require("../photos/freelance.png"),
+  description:
+    "WorkWagon is a freelancing platform that connects clients with skilled freelancers. Clients can hire experts for services like web development, logo design, and SEO, while freelancers can showcase their profiles, offer services, and earn by completing projects. The platform ensures a smooth, user-friendly, and reliable collaboration experience.",
+  tech: "Front-end: React.js and Tailwind CSS / Back-end: Node.js with APIs / DB: MongoDB",
+  link: "https://frontend-workwagon.vercel.app/",
+},
+  {
+      id: 3,
       name: "Glam Cosmetics",
       img: require("../photos/glam.png"),
       description:
@@ -24,7 +32,7 @@ const Project = () => {
       link: "https://github.com/ASHMEETSINGHRENU/glam2.0",
     },
     {
-      id: 3,
+      id: 4,
       name: "AAOKHAAO - Food Delivery",
       img: require("../photos/aaokhaao.png"),
       description:
@@ -33,7 +41,7 @@ const Project = () => {
       link: "https://github.com/ASHMEETSINGHRENU/AAOKHAAO-food-delivery",
     },
     {
-      id: 4,
+      id: 5,
       name: "Bank Management System",
       img: require("../photos/BMS.png"), 
       description:
