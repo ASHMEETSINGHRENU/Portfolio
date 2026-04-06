@@ -9,23 +9,9 @@ import {
   FaDatabase, 
   FaServer, 
   FaInstagram,
-  FaReact,
-  FaNodeJs,
-  FaJava,
-  FaPhp,
-  FaGitAlt,
-  FaFigma,
-  FaAws
 } from 'react-icons/fa';
-import { 
-  SiTailwindcss, 
-  SiJavascript, 
-  SiMongodb, 
-  SiExpress,
-  SiTypescript,
-  SiNextdotjs
-} from 'react-icons/si';
-import { Download, parkles, Award, GraduationCap, Briefcase, Star, ArrowRight } from "lucide-react"; 
+
+import { Download, ArrowRight } from "lucide-react"; 
 import Navber from '../components/navbar';
 import Footer from '../components/footer';
 
