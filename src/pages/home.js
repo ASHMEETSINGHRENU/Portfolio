@@ -48,12 +48,12 @@ const Home = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 to-indigo-100 text-gray-800">
 
-      {/* Navbar */}
+
       <Navber />
 
-      {/* Main Content */}
+
       <main className="flex-grow mt-16">
-        {/* Hero Section */}
+        {/* Hero Section hello pages  */}
 <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
           <div className="container mx-auto px-4 py-20 md:py-0">
             <div className="flex flex-col-reverse md:flex-row items-center gap-12">
