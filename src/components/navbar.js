@@ -19,7 +19,7 @@ const Navbar = () => {
   const location = useLocation();
 
   const navLinks = [
-    { name: "Home", path: "/", icon: <Home className="w-4 h-4" /> },
+    { name: "Home", path: "/home", icon: <Home className="w-4 h-4" /> },
     { name: "Resume", path: "/resume", icon: <FileText className="w-4 h-4" /> },
     { name: "Certificates", path: "/certificates", icon: <Award className="w-4 h-4" /> },
     { name: "Projects", path: "/projects", icon: <FolderGit2 className="w-4 h-4" /> },
