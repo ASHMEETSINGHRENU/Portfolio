@@ -96,7 +96,7 @@ const Navbar = () => {
                 <NavLink
                   key={link.path}
                   to={link.path}
-                  end={link.path === "/"}
+                  end={link.path === "/home"}
                   className={({ isActive }) =>
                     `relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                       isActive
@@ -196,7 +196,7 @@ const Navbar = () => {
                     <NavLink
                       key={link.path}
                       to={link.path}
-                      end={link.path === "/"}
+                      end={link.path === "/home"}
                       className={({ isActive }) =>
                         `flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-300 ${
                           isActive
