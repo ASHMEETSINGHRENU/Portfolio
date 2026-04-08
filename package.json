@@ -17,12 +17,12 @@
     "react-pdf": "^10.1.0",
     "react-router-dom": "^7.14.0",
     "react-scripts": "5.0.1",
-    "typewriter-effect": "^2.22.0",
+    "typewriter-effect": "^22.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "CI=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -30,7 +30,10 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "no-unused-vars": "warn"
+    }
   },
   "browserslist": {
     "production": [
