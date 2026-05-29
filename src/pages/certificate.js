@@ -328,7 +328,7 @@ const Certificate = () => {
           className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 w-full max-w-4xl mx-auto mb-16"
         >
           {[
-            { icon: "📜", label: "Total Certifications", value: "11+" },
+            { icon: "📜", label: "Total Certifications", value: "20+" },
             { icon: "⭐", label: "Skills Validated", value: "25+" },
             { icon: "🏆", label: "Platforms", value: "3" },
             { icon: "🎓", label: "Learning Hours", value: "200+" }

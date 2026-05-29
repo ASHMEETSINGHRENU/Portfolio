@@ -188,7 +188,7 @@ const InternshipSection = ({ internships }) => {
             {[
               { icon: "🚀", label: "Projects Completed", value: "10+" },
               { icon: "💡", label: "Technologies Used", value: "15+" },
-              { icon: "🏆", label: "Certifications", value: "5+" }
+              { icon: "🏆", label: "Certifications", value: "20+" }
             ].map((stat, idx) => (
               <motion.div
                 key={idx}

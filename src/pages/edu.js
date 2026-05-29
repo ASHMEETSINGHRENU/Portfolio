@@ -4,6 +4,8 @@ import { GraduationCap, Calendar, MapPin, Award, Star } from 'lucide-react';
 
 const EducationSection = () => {
   const { scrollYProgress } = useScroll();
+  
+  // For desktop timeline line height animation
   const lineHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   const educationData = [
@@ -53,6 +55,16 @@ const EducationSection = () => {
     }
   ];
 
+  // Create a ref for the timeline container
+  const containerRef = React.useRef(null);
+  const { scrollYProgress: containerScrollProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  // For the line that grows with scroll
+  const growingLineHeight = useTransform(containerScrollProgress, [0, 1], ['0%', '100%']);
+
   return (
     <section className="relative py-16 md:py-24 px-4 overflow-hidden">
       {/* Animated Background */}
@@ -92,15 +104,15 @@ const EducationSection = () => {
         </motion.div>
 
         {/* Timeline Container - Desktop View */}
-        <div className="hidden md:block relative max-w-5xl mx-auto">
-          {/* Animated Vertical Line */}
-          <motion.div 
-            className="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 rounded-full"
-            style={{ height: lineHeight }}
-          />
+        <div ref={containerRef} className="hidden md:block relative max-w-5xl mx-auto">
+          {/* Static Background Line */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-indigo-200 via-purple-200 to-pink-200 rounded-full opacity-30" />
           
-          {/* Glassmorphism Background Line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-indigo-200 rounded-full opacity-30" />
+          {/* Animated Growing Line */}
+          <motion.div 
+            className="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 rounded-full origin-top"
+            style={{ height: growingLineHeight }}
+          />
 
           {educationData.map((item, index) => (
             <motion.div
@@ -179,8 +191,14 @@ const EducationSection = () => {
 
         {/* Mobile View - Vertical Timeline */}
         <div className="block md:hidden relative">
-          {/* Vertical Line for Mobile */}
-          <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 rounded-full" />
+          {/* Static Background Line for Mobile */}
+          <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo-200 via-purple-200 to-pink-200 rounded-full" />
+          
+          {/* Animated Growing Line for Mobile */}
+          <motion.div 
+            className="absolute left-4 top-0 w-0.5 bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 rounded-full origin-top"
+            style={{ height: growingLineHeight }}
+          />
           
           {educationData.map((item, index) => (
             <motion.div

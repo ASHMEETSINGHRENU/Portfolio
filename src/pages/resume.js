@@ -35,7 +35,7 @@ const Resume = () => {
   const stats = [
     { icon: <Briefcase className="w-5 h-5" />, label: "Experience", value: "2+ Years", color: "from-blue-500 to-cyan-500" },
     { icon: <Code className="w-5 h-5" />, label: "Projects", value: "25+", color: "from-green-500 to-emerald-500" },
-    { icon: <Award className="w-5 h-5" />, label: "Certifications", value: "11+", color: "from-purple-500 to-pink-500" },
+    { icon: <Award className="w-5 h-5" />, label: "Certifications", value: "20+", color: "from-purple-500 to-pink-500" },
     { icon: <Users className="w-5 h-5" />, label: "Resume", value: "Download", color: "from-orange-500 to-red-500" }
   ];
 

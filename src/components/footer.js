@@ -333,7 +333,7 @@ const Footer = () => {
             </p>
             
             <div className="flex items-center gap-2 text-xs text-gray-400">
-              <span>Made with</span>
+              <span>Developer</span>
               <motion.div
                 animate={{ 
                   scale: [1, 1.2, 1],
@@ -343,7 +343,7 @@ const Footer = () => {
               >
                 <Heart size={14} className="text-red-500 fill-red-500" />
               </motion.div>
-              <span>using React & Tailwind CSS</span>
+              <span>Ashmeet Singh Renu</span>
             </div>
           </motion.div>
         </div>
