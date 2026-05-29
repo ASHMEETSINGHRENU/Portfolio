@@ -5,8 +5,17 @@ import Footer from "../components/footer";
 
 const Project = () => {
   const projects = [
-    {
-  id: 1,
+{
+id: 1,
+name: "SlideNova – Professional PPT Design & Presentation Platform",
+img: require("../photos/slidenova.png"),
+description: "SlideNova is a MERN stack-based web platform that provides professional PowerPoint presentation services for businesses, students, startups, and professionals. The platform helps transform simple presentations into visually appealing, modern, and insight-driven PPTs with structured content and impactful designs. Users can explore different presentation services such as PPT redesign, pitch deck creation, and business presentations, then submit their requirements through an integrated service form. The website focuses on improving presentation quality, clarity, and audience engagement through professional slide solutions.",
+tech: "Front-end: React.js and Tailwind CSS / Back-end: Node.js and Express.js / DB: MongoDB",
+link: "https://front-slidenova.vercel.app/home",
+},
+
+{
+  id: 2,
   name: "InterviewReady – Technical Interview Learning Platform",
   img: require("../photos/interviewready.png"),
   description: "Interview Ready is a web platform designed to help students and job seekers prepare effectively for technical and professional interviews. The website provides structured interview questions, coding problems, and concept explanations in one place. It focuses on strengthening problem-solving skills and improving understanding of core technical topics. The platform offers a clean and user-friendly interface so users can easily navigate and practice. By using Interview Ready, candidates can build confidence, sharpen their knowledge, and become better prepared for real interview scenarios.",
@@ -14,7 +23,7 @@ const Project = () => {
   link: "https://interview-r-frontend.vercel.app/",
 },
  {
-  id: 2,
+  id: 3,
   name: "WorkWagon - Freelancer Website",
   img: require("../photos/freelance.png"),
   description:
@@ -23,7 +32,7 @@ const Project = () => {
   link: "https://frontend-workwagon.vercel.app/",
 },
   {
-      id: 3,
+      id: 4,
       name: "Glam Cosmetics",
       img: require("../photos/glam.png"),
       description:
@@ -32,7 +41,7 @@ const Project = () => {
       link: "https://github.com/ASHMEETSINGHRENU/glam2.0",
     },
     {
-      id: 4,
+      id: 5,
       name: "AAOKHAAO - Food Delivery",
       img: require("../photos/aaokhaao.png"),
       description:
@@ -41,7 +50,7 @@ const Project = () => {
       link: "https://github.com/ASHMEETSINGHRENU/AAOKHAAO-food-delivery",
     },
     {
-      id: 5,
+      id: 6,
       name: "Bank Management System",
       img: require("../photos/BMS.png"), 
       description:
