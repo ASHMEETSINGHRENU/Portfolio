@@ -271,8 +271,9 @@ const IntroSection = () => {
                 
                 <div className="space-y-4 text-gray-600 leading-relaxed">
                   <p className="text-lg">
-                    I bring a full-stack perspective — from pixel-perfect interfaces to scalable server-side logic. 
-                    At <span className="font-semibold text-blue-600">Labmentix</span>, I worked on real projects with real stakes, 
+                    I turn complex ideas into high-performance web applications through strong full-stack development expertis
+                    Through my experience as a Web Development Intern at <span className="font-semibold text-blue-600"> Zidio Development </span>
+                    and my work at Labmentix, I’ve contributed to real projects with real stakes, 
                     sharpening my ability to deliver clean, efficient code under pressure.
                   </p>
                   
@@ -308,16 +309,16 @@ const IntroSection = () => {
                       <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white mb-4">
                         <CheckCircle className="w-8 h-8" />
                       </div>
-                      <h3 className="text-xl font-bold text-gray-800 mb-2">Ready to Build?</h3>
+                      <h3 className="text-xl font-bold text-gray-800 mb-2">professional excellence</h3>
                       <p className="text-gray-600 text-sm mb-4">
-                        Let's create something that matters
+                        Industry-certified professional with result-driven skills
                       </p>
                       <motion.a
-                        href="#"
+                        href="/certificates"
                         whileHover={{ scale: 1.02 }}
                         className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full text-white text-sm font-medium shadow-lg"
                       >
-                        Let's Connect
+                        Verify
                         <ArrowRight className="w-4 h-4" />
                       </motion.a>
                     </div>

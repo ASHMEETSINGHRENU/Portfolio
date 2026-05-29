@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Download, Eye, X, ChevronLeft, ChevronRight, Award, GraduationCap, Star } from "lucide-react";
+import { Download, Eye, X, ChevronLeft, ChevronRight, Award, GraduationCap, Star, Globe } from "lucide-react";
 import Navbar from '../components/navbar';
 import Footer from "../components/footer";
 
@@ -9,8 +9,57 @@ const Certificate = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentCategory, setCurrentCategory] = useState(null);
 
-  // Certificate data (image + pdf)
-  const certificates = [
+  // Global Certificates Data
+  const globalCertificates = [
+    {
+      id: 1,
+      title: "Advanced Software Engineering",
+      img: require("../photos/walmart.png"),
+      pdf: "/walmart.pdf",
+      category: "global",
+      date: "2026",
+      issuer: "Forage Job Simulations"
+    },
+    {
+      id: 2,
+      title: "Software Engineering",
+      img: require("../photos/commonwealth.png"),
+      pdf: "/common_wealth.pdf",
+      category: "global",
+      date: "2026",
+      issuer: "Forage Job Simulations"
+    },
+    {
+      id: 3,
+      title: "Frontend Software Engineering",
+      img: require("../photos/sykscanner.png"),
+      pdf: "/sykscanner.pdf",
+      category: "global",
+      date: "2026",
+      issuer: "Forage Job Simulations"
+    },
+    {
+      id: 4,
+      title: "Data Analytics",
+      img: require("../photos/deloitte.png"),
+      pdf: "/deloitte.pdf",
+      category: "global",
+      date: "2026",
+      issuer: "Forage Job Simulations"
+    },
+    {
+      id: 5,
+      title: "GenAI Powered Data Analytics",
+      img: require("../photos/tata.png"),
+      pdf: "/tata.pdf",
+      category: "global",
+      date: "2026",
+      issuer: "Forage Job Simulations"
+    }
+  ];
+
+  // Professional Certificates Data
+  const professionalCertificates = [
     {
       id: 1,
       title: "Labmentix Internship Certificate",
@@ -58,6 +107,7 @@ const Certificate = () => {
     },
   ];
 
+  // Udemy Certificates Data
   const udemyCertificates = [
     {
       id: 1,
@@ -115,8 +165,6 @@ const Certificate = () => {
     }
   ];
 
-  const allCertificates = [...certificates, ...udemyCertificates];
-
   const openModal = (certificate, index, category) => {
     setCurrentIndex(index);
     setCurrentCategory(category);
@@ -128,14 +176,28 @@ const Certificate = () => {
   };
 
   const nextImage = () => {
-    const currentCerts = currentCategory === 'Professional' ? certificates : udemyCertificates;
+    let currentCerts;
+    if (currentCategory === 'Global Certifications') {
+      currentCerts = globalCertificates;
+    } else if (currentCategory === 'Professional Certifications') {
+      currentCerts = professionalCertificates;
+    } else {
+      currentCerts = udemyCertificates;
+    }
     const newIndex = (currentIndex + 1) % currentCerts.length;
     setCurrentIndex(newIndex);
     setSelectedImage(currentCerts[newIndex]);
   };
 
   const prevImage = () => {
-    const currentCerts = currentCategory === 'Professional' ? certificates : udemyCertificates;
+    let currentCerts;
+    if (currentCategory === 'Global Certifications') {
+      currentCerts = globalCertificates;
+    } else if (currentCategory === 'Professional Certifications') {
+      currentCerts = professionalCertificates;
+    } else {
+      currentCerts = udemyCertificates;
+    }
     const newIndex = (currentIndex - 1 + currentCerts.length) % currentCerts.length;
     setCurrentIndex(newIndex);
     setSelectedImage(currentCerts[newIndex]);
@@ -289,36 +351,36 @@ const Certificate = () => {
       <div className="flex-grow flex flex-col items-center justify-center px-4 md:px-6 pt-24 pb-12 relative z-10">
         {/* Page Heading */}
         <motion.div
-  initial={{ opacity: 0, y: -30 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6 }}
-  className="text-center mb-8 md:mb-12 px-4"
->
-  {/* Badge - Responsive positioning */}
-  <motion.div
-    initial={{ scale: 0 }}
-    animate={{ scale: 1 }}
-    transition={{ duration: 0.5, type: "spring" }}
-    className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full mb-3 md:mb-4 shadow-lg"
-  >
-    <Award className="w-3 h-3 md:w-4 md:h-4" />
-    <span className="text-xs md:text-sm font-medium">My Achievements</span>
-  </motion.div>
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-8 md:mb-12 px-4"
+        >
+          {/* Badge - Responsive positioning */}
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.5, type: "spring" }}
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full mb-3 md:mb-4 shadow-lg"
+          >
+            <Award className="w-3 h-3 md:w-4 md:h-4" />
+            <span className="text-xs md:text-sm font-medium">My Achievements</span>
+          </motion.div>
           
-    <h1 className="font-playfair text-3xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-gray-800 via-blue-600 to-purple-600 bg-clip-text text-transparent mb-3 md:mb-4">
-    Certifications
-  </h1>
-  
-  {/* Underline */}
-  <div className="w-20 h-0.5 md:w-24 md:h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-4 md:mb-6" />
-  
-  {/* Description */}
-  <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto px-4 leading-relaxed">
-    A testament to my commitment to continuous learning and professional growth.
-    <br className="hidden sm:block" />
-    Each certification represents practical knowledge and real-world skill development.
-  </p>
-</motion.div>
+          <h1 className="font-playfair text-3xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-gray-800 via-blue-600 to-purple-600 bg-clip-text text-transparent mb-3 md:mb-4">
+            Certifications
+          </h1>
+          
+          {/* Underline */}
+          <div className="w-20 h-0.5 md:w-24 md:h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-4 md:mb-6" />
+          
+          {/* Description */}
+          <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto px-4 leading-relaxed">
+            A testament to my commitment to continuous learning and professional growth.
+            <br className="hidden sm:block" />
+            Each certification represents practical knowledge and real-world skill development.
+          </p>
+        </motion.div>
 
         {/* Stats Section */}
         <motion.div
@@ -329,9 +391,9 @@ const Certificate = () => {
         >
           {[
             { icon: "📜", label: "Total Certifications", value: "20+" },
-            { icon: "⭐", label: "Skills Validated", value: "25+" },
-            { icon: "🏆", label: "Platforms", value: "3" },
-            { icon: "🎓", label: "Learning Hours", value: "200+" }
+            { icon: "⭐", label: "Skills Validated", value: "30+" },
+            { icon: "🏆", label: "Platforms", value: "10" },
+            { icon: "🎓", label: "Coding", value: "5hs" }
           ].map((stat, idx) => (
             <motion.div
               key={idx}
@@ -347,9 +409,17 @@ const Certificate = () => {
           ))}
         </motion.div>
 
+        {/* Global Certificates Grid */}
+        <CertificateGrid 
+          certificates={globalCertificates}
+          title="Global Certifications"
+          icon={<Globe className="w-4 h-4" />}
+          badgeColor="bg-gradient-to-r from-emerald-500 to-teal-500"
+        />
+
         {/* Professional Certificates Grid */}
         <CertificateGrid 
-          certificates={certificates}
+          certificates={professionalCertificates}
           title="Professional Certifications"
           icon={<GraduationCap className="w-4 h-4" />}
           badgeColor="bg-gradient-to-r from-blue-500 to-cyan-500"
@@ -406,7 +476,12 @@ const Certificate = () => {
                 />
                 
                 {/* Navigation Buttons */}
-                {(currentCategory === 'Professional' ? certificates : udemyCertificates).length > 1 && (
+                {(currentCategory === 'Global Certifications' || 
+                  currentCategory === 'Professional Certifications' || 
+                  currentCategory === 'Udemy Certifications') && 
+                  (currentCategory === 'Global Certifications' ? globalCertificates.length > 1 :
+                   currentCategory === 'Professional Certifications' ? professionalCertificates.length > 1 :
+                   udemyCertificates.length > 1) && (
                   <>
                     <button
                       onClick={prevImage}
