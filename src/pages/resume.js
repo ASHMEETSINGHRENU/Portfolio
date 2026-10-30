@@ -1,377 +1,275 @@
+// client/src/pages/resume.js
 import React, { useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { 
   Download, 
   Eye, 
   FileText, 
   Award, 
-  Briefcase, 
-  GraduationCap,
-  Code,
-  Database,
-  Cloud,
-  Wrench,
-  ChevronDown,
-  Star,
-  Users,
-  Clock,
-  CheckCircle,
-  Zap,
-  Sparkles,
-  HardDrive,
-  Server,
-  Cpu
+  GraduationCap, 
+  Code, 
+  Database, 
+  Cloud, 
+  Sparkles, 
+  Server, 
+  ExternalLink, 
+  ShieldCheck, 
+  Globe 
 } from "lucide-react";
 import Navbar from '../components/navbar';
 import Footer from "../components/footer";
+import { personalInfo } from '../data/portfolioData';
 
 const Resume = () => {
-  const pdfFile = "/Resume.pdf";
   const [isHovering, setIsHovering] = useState(false);
-  const { scrollYProgress } = useScroll();
-  const lineHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
-  
-  // Resume statistics
+  const pdfFile = personalInfo.resumePdf;
+
   const stats = [
-    { icon: <Briefcase className="w-5 h-5" />, label: "Experience", value: "2+ Years", color: "from-blue-500 to-cyan-500" },
-    { icon: <Code className="w-5 h-5" />, label: "Projects", value: "25+", color: "from-green-500 to-emerald-500" },
-    { icon: <Award className="w-5 h-5" />, label: "Certifications", value: "20+", color: "from-purple-500 to-pink-500" },
-    { icon: <Users className="w-5 h-5" />, label: "Resume", value: "Download", color: "from-orange-500 to-red-500" }
+    { icon: Globe, label: "Commercial Platforms", value: "5+", accent: "from-emerald-400 to-teal-500" },
+    { icon: Code, label: "Total Projects Delivered", value: "30+", accent: "from-amber-400 to-yellow-600" },
+    { icon: Award, label: "Verified Credentials", value: "16+", accent: "from-purple-500 to-pink-500" },
+    { icon: GraduationCap, label: "Academic Degree", value: "MCA (Pursuing)", accent: "from-blue-500 to-indigo-600" }
   ];
 
-  // Quick info cards
   const quickInfo = [
-    { icon: <GraduationCap className="w-5 h-5" />, label: "Education", value: "MCA (Pursuing)", detail: "D Y Patil University" },
-    { icon: <Code className="w-5 h-5" />, label: "Tech Stack", value: "30+ Technologies", detail: "Full-Stack Developer" },
-    { icon: <Clock className="w-5 h-5" />, label: "Availability", value: "Immediate", detail: "Open to Opportunities" },
-    { icon: <Zap className="w-5 h-5" />, label: "GitHub", value: "50+ Repos", detail: "Active Contributor" }
+    { icon: GraduationCap, label: "Current Education", value: "MCA (Pursuing)", detail: "D Y Patil University, Pune" },
+    { icon: Award, label: "International Exposure", value: "Mobility Program", detail: "INTI International University, Malaysia" },
+    { icon: Code, label: "Core Specialization", value: "MERN & Full-Stack", detail: "React, Node, Express, MongoDB" },
+    { icon: ShieldCheck, label: "Availability Status", value: "Immediate", detail: "Open to High-Impact Opportunities" }
   ];
 
-  // Skills summary
-  const skillCategories = [
-    { name: "Frontend", level: 90, icon: <Code className="w-4 h-4" />, color: "blue" },
-    { name: "Backend", level: 85, icon: <Server className="w-4 h-4" />, color: "green" },
-    { name: "Database", level: 82, icon: <Database className="w-4 h-4" />, color: "purple" },
-    { name: "Cloud", level: 78, icon: <Cloud className="w-4 h-4" />, color: "orange" }
+  const skillGauges = [
+    { name: "Front-End Architecture (React, Tailwind)", level: 92, icon: Code },
+    { name: "Back-End & REST APIs (Node.js, Express)", level: 88, icon: Server },
+    { name: "Database Engineering (MongoDB, MySQL)", level: 86, icon: Database },
+    { name: "Cloud & Dev Tools (Git, AWS, Postman)", level: 82, icon: Cloud },
   ];
-
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
-      {/* Animated Background Particles */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        {/* Simple dot pattern */}
-        <div className="absolute inset-0 opacity-20" 
-             style={{
-               backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-               backgroundSize: '30px 30px'
-             }} 
-        />
-        
-        {/* Animated Blobs */}
-        <motion.div
-          animate={{ 
-            x: [0, 100, -50, 0],
-            y: [0, -50, 100, 0],
-            scale: [1, 1.2, 0.8, 1]
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute top-20 -left-20 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
-        />
-        <motion.div
-          animate={{ 
-            x: [0, -100, 50, 0],
-            y: [0, 50, -100, 0],
-            scale: [1, 0.8, 1.2, 1]
-          }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-20 -right-20 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
-        />
-        <motion.div
-          animate={{ 
-            x: [0, 50, -100, 0],
-            y: [0, -100, 50, 0],
-            scale: [1, 1.1, 0.9, 1]
-          }}
-          transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/2 left-1/2 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
-        />
-      </div>
-
+    <div className="min-h-screen bg-[#FBF6EF] text-[#0D0D0C] flex flex-col relative selection:bg-[#F8DCC7] selection:text-[#0D0D0C]">
       <Navbar />
 
       {/* Main Content */}
-      <div className="flex-grow relative z-10 pt-20 pb-12">
-        <div className="container mx-auto px-4 max-w-7xl">
-          
-          {/* Hero Section */}
-          <motion.div
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, type: "spring" }}
-            className="text-center mb-12"
-          >
-            {/* Floating Badge */}
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-full mb-6 shadow-xl"
-            >
-              <Sparkles className="w-4 h-4 text-yellow-400" />
-              <span className="text-sm font-medium">Interactive Resume</span>
-            </motion.div>
+      <main className="flex-grow pt-32 pb-24 px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Ambient Top Glows */}
+        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-3/4 h-80 bg-gradient-to-b from-[#F8DCC7]/40 via-[#DFE9D4]/30 to-transparent blur-3xl pointer-events-none" />
 
-            <h1 className="text-5xl md:text-7xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Professional
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Journey
-              </span>
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-3xl mx-auto mb-16 space-y-4"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#0D0D0C]/10 text-xs font-medium text-[#F2772F] shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-[#F2772F]" />
+              <span>Curriculum Vitae</span>
+            </div>
+
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-[#0D0D0C]">
+              Executive <span className="apricot-text-gradient font-semibold">Resume</span> & Profile
             </h1>
-            
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="w-32 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-6"
-            />
-            
-            <p className="text-gray-300 max-w-2xl mx-auto text-lg">
-              Explore my professional journey, skills, and achievements through this interactive experience
+
+            <p className="text-[#0D0D0C]/65 text-sm md:text-base leading-relaxed">
+              Explore my technical background, academic milestones, and core competencies in a clean, comprehensive presentation.
             </p>
           </motion.div>
 
-          {/* Stats Grid */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12"
-          >
-            {stats.map((stat, idx) => (
-              <motion.div
-                key={idx}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="relative group"
-              >
-                <div className={`absolute -inset-0.5 bg-gradient-to-r ${stat.color} rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500`} />
-                <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-4 text-center border border-white/20">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 text-white mb-3">
-                    {stat.icon}
+          {/* Quick Stats Grid */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-16">
+            {stats.map((stat, idx) => {
+              const Icon = stat.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  whileHover={{ y: -4 }}
+                  className="p-6 rounded-3xl bg-white border border-[#0D0D0C]/08 hover:border-[#F2772F]/40 transition-all shadow-card-soft hover:shadow-vela-hover group"
+                >
+                  <div className="w-12 h-12 rounded-2xl bg-[#F4F2ED] border border-[#0D0D0C]/08 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <Icon className="w-5 h-5 text-[#F2772F]" />
                   </div>
-                  <div className="text-2xl font-bold text-white">{stat.value}</div>
-                  <div className="text-sm text-gray-300">{stat.label}</div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+                  <div className="text-2xl md:text-3xl font-semibold tracking-tight text-[#0D0D0C] mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="text-xs text-[#0D0D0C]/60 font-medium">
+                    {stat.label}
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
 
-          {/* Main Resume Display */}
-          <div className="grid lg:grid-cols-3 gap-8 mb-12">
-            {/* Left Sidebar - Quick Info */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="lg:col-span-1"
-            >
-              <div className="sticky top-24 space-y-6">
-                {/* Quick Info Cards */}
-                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                    <FileText className="w-5 h-5 text-blue-400" />
-                    Quick Overview
-                  </h3>
-                  <div className="space-y-4">
-                    {quickInfo.map((info, idx) => (
-                      <motion.div
+          {/* Main Content Layout: Sidebar Overview + Resume Viewer */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            {/* Left Column: Quick Profile Summary & Actions */}
+            <div className="space-y-6">
+              
+              {/* Primary Action Buttons */}
+              <div className="p-6 rounded-3xl bg-white border border-[#0D0D0C]/08 shadow-card-soft space-y-3">
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-[#0D0D0C]/50 mb-4 flex items-center gap-2">
+                  <FileText className="w-4 h-4 text-[#F2772F]" />
+                  Direct Actions
+                </h3>
+
+                <a
+                  href={pdfFile}
+                  download="Ashmeet_Singh_Resume.pdf"
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-[#0D0D0C] text-[#FBF6EF] font-medium text-sm shadow-md hover:bg-[#0D0D0C]/90 hover:scale-[1.01] transition-all"
+                >
+                  <Download className="w-4 h-4" />
+                  <span>Download Executive PDF</span>
+                </a>
+
+                <a
+                  href={pdfFile}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-[#F4F2ED] hover:bg-[#0D0D0C]/05 text-[#0D0D0C] font-medium text-sm border border-[#0D0D0C]/10 transition-colors"
+                >
+                  <Eye className="w-4 h-4 text-[#F2772F]" />
+                  <span>Open in Browser</span>
+                  <ExternalLink className="w-3.5 h-3.5 ml-1 text-[#0D0D0C]/40" />
+                </a>
+              </div>
+
+              {/* Quick Info Points */}
+              <div className="p-6 rounded-3xl bg-white border border-[#0D0D0C]/08 shadow-card-soft space-y-4">
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-[#0D0D0C]/50 mb-2">
+                  Key Credentials
+                </h3>
+
+                <div className="space-y-3">
+                  {quickInfo.map((info, idx) => {
+                    const Icon = info.icon;
+                    return (
+                      <div
                         key={idx}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: idx * 0.1 }}
-                        className="flex items-start gap-3 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition"
+                        className="p-3.5 rounded-2xl bg-[#F4F2ED] border border-[#0D0D0C]/06 space-y-1"
                       >
-                        <div className="text-purple-400 mt-1">{info.icon}</div>
-                        <div>
-                          <div className="text-xs text-gray-400">{info.label}</div>
-                          <div className="text-white font-semibold">{info.value}</div>
-                          <div className="text-xs text-gray-400">{info.detail}</div>
+                        <div className="flex items-center gap-2 text-xs text-[#F2772F] font-medium">
+                          <Icon className="w-3.5 h-3.5" />
+                          <span>{info.label}</span>
                         </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Skills Progress */}
-                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                    <Wrench className="w-5 h-5 text-green-400" />
-                    Core Skills
-                  </h3>
-                  <div className="space-y-4">
-                    {skillCategories.map((skill, idx) => (
-                      <motion.div
-                        key={idx}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: idx * 0.1 }}
-                      >
-                        <div className="flex items-center justify-between mb-2">
-                          <div className="flex items-center gap-2 text-gray-300 text-sm">
-                            {skill.icon}
-                            {skill.name}
-                          </div>
-                          <span className="text-white text-sm">{skill.level}%</span>
+                        <div className="text-sm font-semibold text-[#0D0D0C]">
+                          {info.value}
                         </div>
-                        <div className="h-2 bg-white/20 rounded-full overflow-hidden">
-                          <motion.div
-                            initial={{ width: 0 }}
-                            animate={{ width: `${skill.level}%` }}
-                            transition={{ duration: 1, delay: 0.5 }}
-                            className={`h-full bg-gradient-to-r from-${skill.color}-500 to-${skill.color}-400 rounded-full`}
-                          />
+                        <div className="text-xs text-[#0D0D0C]/60">
+                          {info.detail}
                         </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Download Options */}
-                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-                  <h3 className="text-xl font-bold text-white mb-4">Actions</h3>
-                  <div className="space-y-3">
-                    <motion.a
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      href={pdfFile}
-                      download="My_Resume.pdf"
-                      className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all"
-                    >
-                      <Download className="w-5 h-5" />
-                      Download Resume
-                    </motion.a>
-                    <motion.a
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      href={pdfFile}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all"
-                    >
-                      <Eye className="w-5 h-5" />
-                      View Online
-                    </motion.a>
-                  </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
-            </motion.div>
 
-            {/* Right Side - Resume Viewer */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4, type: "spring" }}
-              className="lg:col-span-2"
-            >
-              <div 
-                className="relative group"
+              {/* Core Skill Competency Gauges */}
+              <div className="p-6 rounded-3xl bg-white border border-[#0D0D0C]/08 shadow-card-soft space-y-4">
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-[#0D0D0C]/50 mb-2">
+                  Technical Proficiency
+                </h3>
+
+                <div className="space-y-4">
+                  {skillGauges.map((skill, idx) => {
+                    const Icon = skill.icon;
+                    return (
+                      <div key={idx} className="space-y-1.5">
+                        <div className="flex items-center justify-between text-xs">
+                          <span className="text-[#0D0D0C]/80 font-medium flex items-center gap-1.5">
+                            <Icon className="w-3.5 h-3.5 text-[#F2772F]" />
+                            {skill.name}
+                          </span>
+                          <span className="font-mono text-[#F2772F] font-medium">{skill.level}%</span>
+                        </div>
+                        <div className="h-1.5 w-full bg-[#F4F2ED] rounded-full overflow-hidden border border-[#0D0D0C]/06">
+                          <motion.div
+                            initial={{ width: 0 }}
+                            whileInView={{ width: `${skill.level}%` }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1, delay: idx * 0.1 }}
+                            className="h-full bg-gradient-to-r from-[#F2772F] to-[#E9C22E] rounded-full"
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: 3D Interactive Resume Preview */}
+            <div className="lg:col-span-2">
+              <div
+                className="relative rounded-3xl p-4 sm:p-6 bg-white border border-[#0D0D0C]/08 shadow-card-soft overflow-hidden group"
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
               >
-                {/* 3D Shadow Effect */}
-                <motion.div
-                  animate={{ 
-                    rotateX: isHovering ? 5 : 0,
-                    rotateY: isHovering ? 5 : 0,
-                  }}
-                  transition={{ duration: 0.3 }}
-                  className="relative"
-                  style={{ transformStyle: "preserve-3d" }}
-                >
-                  {/* Glowing Border Effect */}
-                  <div className={`absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-2xl blur-xl transition-opacity duration-500 ${isHovering ? 'opacity-100' : 'opacity-50'}`} />
-                  
-                  {/* Resume Card */}
-                  <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-2xl">
-                    <div className="relative overflow-hidden rounded-xl">
-                      {/* Floating Ribbon */}
-                      <motion.div
-                        animate={{ x: [0, 10, 0] }}
-                        transition={{ duration: 3, repeat: Infinity }}
-                        className="absolute top-4 right-4 z-10 bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg"
-                      >
-                        Featured
-                      </motion.div>
+                {/* Subtle Vela pastel glow */}
+                <div className={`absolute -inset-1 bg-gradient-to-r from-[#F8DCC7] via-[#DFE9D4] to-[#F2ECDF] rounded-3xl blur-xl opacity-30 transition-opacity duration-700 ${isHovering ? 'opacity-60' : 'opacity-20'}`} />
 
-                      <img
-                        src={require("../photos/resume.png")}
-                        alt="Resume"
-                        className="w-full h-auto rounded-lg cursor-pointer transition-all duration-500 hover:scale-[1.02]"
-                      />
-                      
-                      {/* Interactive Overlay */}
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: isHovering ? 1 : 0 }}
-                        className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end justify-center p-6"
+                <div className="relative z-10 space-y-4">
+                  <div className="flex items-center justify-between px-2">
+                    <div className="flex items-center gap-2">
+                      <span className="px-3 py-1 rounded-full text-xs font-medium bg-[#F8DCC7]/50 text-[#F2772F] border border-[#F2772F]/20">
+                        Official Document Preview
+                      </span>
+                      <span className="text-xs text-[#0D0D0C]/50">PDF Version 2026</span>
+                    </div>
+
+                    <a
+                      href={pdfFile}
+                      download
+                      className="inline-flex items-center gap-1 text-xs font-medium text-[#F2772F] hover:text-[#0D0D0C] transition-colors"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                      <span>Download File</span>
+                    </a>
+                  </div>
+
+                  {/* High-res Image Preview */}
+                  <div className="relative rounded-2xl overflow-hidden border border-[#0D0D0C]/10 shadow-md bg-[#F4F2ED]">
+                    <img
+                      src={require("../photos/resume.png")}
+                      alt="Ashmeet Singh Official Resume"
+                      className="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-500"
+                    />
+
+                    {/* Interactive overlay on hover */}
+                    <div className="absolute inset-0 bg-[#0D0D0C]/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                      <a
+                        href={pdfFile}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-6 py-3 rounded-full bg-[#0D0D0C] text-[#FBF6EF] font-medium text-xs shadow-2xl flex items-center gap-2 hover:scale-105 transition-transform"
                       >
-                        <div className="text-center">
-                          <p className="text-white font-medium mb-2">Click to view full resume</p>
-                          <ChevronDown className="w-6 h-6 text-white mx-auto animate-bounce" />
-                        </div>
-                      </motion.div>
+                        <Eye className="w-4 h-4" />
+                        <span>View Full Document</span>
+                      </a>
+                      <a
+                        href={pdfFile}
+                        download="Ashmeet_Singh_Resume.pdf"
+                        className="px-6 py-3 rounded-full bg-white text-[#0D0D0C] font-medium text-xs border border-[#0D0D0C]/20 shadow-2xl flex items-center gap-2 hover:scale-105 transition-transform"
+                      >
+                        <Download className="w-4 h-4" />
+                        <span>Download PDF</span>
+                      </a>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               </div>
-
-              {/* Achievement Badges */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="mt-6 flex flex-wrap justify-center gap-3"
-              >
-                {[
-                  { text: "Full-Stack Developer", icon: <Code className="w-3 h-3" /> },
-                  { text: "Cloud Enthusiast", icon: <Cloud className="w-3 h-3" /> },
-                  { text: "Problem Solver", icon: <CheckCircle className="w-3 h-3" /> },
-                  { text: "Team Player", icon: <Users className="w-3 h-3" /> }
-                ].map((badge, idx) => (
-                  <motion.span
-                    key={idx}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    className="inline-flex items-center gap-1 px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs text-gray-300 border border-white/20"
-                  >
-                    {badge.icon}
-                    {badge.text}
-                  </motion.span>
-                ))}
-              </motion.div>
-            </motion.div>
-          </div>
-
-          {/* Call to Action Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            className="text-center"
-          >
-            <div className="inline-flex items-center gap-2 text-gray-400 text-sm">
-              <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-              <span>Ready to collaborate? Let's create something amazing together</span>
-              <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
             </div>
-          </motion.div>
+          </div>
         </div>
-      </div>
+      </main>
 
       <Footer />
     </div>
-    );
+  );
 };
 
 export default Resume;

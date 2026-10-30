@@ -1,353 +1,185 @@
+// client/src/components/footer.js
 import React, { useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { Link } from "react-router-dom";
 import { 
   Github, 
   Linkedin, 
   Instagram, 
   Mail, 
-  Phone, 
-  MapPin, 
-  Heart,
-  Sparkles,
-  ChevronUp,
-  Code2,
-  Globe,
-  Twitter,
-  Facebook,
-  Send
+  ChevronUp, 
+  Copy, 
+  Check, 
+  ArrowUpRight, 
+  MapPin 
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { personalInfo } from "../data/portfolioData";
 
 const Footer = () => {
-  const [isHovered, setIsHovered] = useState(false);
-  const { scrollYProgress } = useScroll();
-  const opacity = useTransform(scrollYProgress, [0, 0.9], [0, 1]);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(personalInfo.email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const navLinks = [
+    { name: "Home", path: "/home" },
+    { name: "Projects", path: "/projects" },
+    { name: "Certificates", path: "/certificates" },
+    { name: "Resume", path: "/resume" }
+  ];
+
   const socialLinks = [
-    { 
-      name: "GitHub", 
-      url: "https://github.com/ASHMEETSINGHRENU", 
-      icon: <Github size={20} />, 
-      color: "hover:text-white",
-      bgColor: "hover:bg-gray-700"
-    },
-    { 
-      name: "LinkedIn", 
-      url: "https://www.linkedin.com/in/ashmeet-singh-renu-9a2a36275/", 
-      icon: <Linkedin size={20} />, 
-      color: "hover:text-blue-400",
-      bgColor: "hover:bg-blue-600/20"
-    },
-    { 
-      name: "Instagram", 
-      url: "https://www.instagram.com/ashmeetsingh022/", 
-      icon: <Instagram size={20} />, 
-      color: "hover:text-pink-400",
-      bgColor: "hover:bg-pink-600/20"
-    },
-    { 
-      name: "Twitter", 
-      url: "https://twitter.com/", 
-      icon: <Twitter size={20} />, 
-      color: "hover:text-sky-400",
-      bgColor: "hover:bg-sky-600/20"
-    },
-    { 
-      name: "Facebook", 
-      url: "https://facebook.com/", 
-      icon: <Facebook size={20} />, 
-      color: "hover:text-blue-500",
-      bgColor: "hover:bg-blue-700/20"
-    }
+    { name: "GitHub", url: personalInfo.socials.github, icon: Github },
+    { name: "LinkedIn", url: personalInfo.socials.linkedin, icon: Linkedin },
+    { name: "Instagram", url: personalInfo.socials.instagram, icon: Instagram },
+    { name: "Email", url: personalInfo.socials.email, icon: Mail }
   ];
-
-  const quickLinks = [
-    { name: "Home", path: "/home", icon: "🏠" },
-    { name: "Resume", path: "/resume", icon: "📄" },
-    { name: "Certificates", path: "/certificates", icon: "🎓" },
-    { name: "Projects", path: "/projects", icon: "💻" }
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { type: "spring", stiffness: 100 }
-    }
-  };
 
   return (
-    <footer className="relative bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-gray-300 overflow-hidden">
-      {/* Animated Background Blobs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 opacity-20" 
-             style={{
-               backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px)`,
-               backgroundSize: '30px 30px'
-             }} 
-        />
-        <motion.div
-          animate={{ 
-            x: [0, 50, -30, 0],
-            y: [0, -30, 50, 0],
-            scale: [1, 1.2, 0.8, 1]
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-40 -right-20 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"
-        />
-        <motion.div
-          animate={{ 
-            x: [0, -50, 30, 0],
-            y: [0, 30, -50, 0],
-            scale: [1, 0.8, 1.2, 1]
-          }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-40 -left-20 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"
-        />
-      </div>
+    <footer className="relative bg-[#F4F2ED] border-t border-[#0D0D0C]/10 pt-20 pb-12 overflow-hidden text-[#0D0D0C] font-interTight">
+      {/* Ambient background glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-64 bg-gradient-to-t from-[#F8DCC7]/30 via-[#F4EBC6]/20 to-transparent blur-3xl pointer-events-none" />
 
-      {/* Scroll to Top Button */}
-      <motion.button
-        style={{ opacity }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        onClick={scrollToTop}
-        className="fixed bottom-8 right-8 z-50 p-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-      >
-        <ChevronUp className="w-5 h-5 text-white" />
-      </motion.button>
-
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={containerVariants}
-        className="relative z-10 w-full px-6 md:px-12 py-12"
-      >
-        {/* Main Footer Content */}
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            
-            {/* Brand Section */}
-            <motion.div variants={itemVariants} className="space-y-4">
-              <div className="flex items-center gap-2">
-                <div className="relative">
-                  <Code2 className="w-8 h-8 text-blue-500" />
-                  <motion.div
-                    animate={{ 
-                      scale: [1, 1.2, 1],
-                      rotate: [0, 360, 0]
-                    }}
-                    transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-                    className="absolute -top-1 -right-1"
-                  >
-                    <Sparkles className="w-3 h-3 text-yellow-500" />
-                  </motion.div>
-                </div>
-                <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  Portfolio
-                </h2>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Executive Call to Action Banner */}
+        <div className="relative mb-20 p-8 md:p-12 rounded-3xl bg-white border border-[#0D0D0C]/10 overflow-hidden shadow-vela">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-[#F8DCC7]/30 rounded-full blur-3xl pointer-events-none" />
+          
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+            <div className="max-w-2xl space-y-3">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#DFE9D4] text-[#0D0D0C] border border-[#3FB874]/30 text-xs font-semibold">
+                <span className="w-2 h-2 rounded-full bg-[#3FB874] animate-pulse" />
+                <span>Available for Full-Time Roles & High-Impact Contracts</span>
               </div>
-              <p className="text-sm text-gray-400 leading-relaxed">
-                A passionate full-stack developer creating amazing web experiences with modern technologies.
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[#0D0D0C]">
+                Let's architect something extraordinary together.
+              </h2>
+              <p className="text-[#0D0D0C]/65 text-sm md:text-base leading-relaxed">
+                Whether you need a full-stack engineer for a production platform, a MERN developer, or technical leadership, I am eager to contribute.
               </p>
-              <div className="flex gap-2">
-                {socialLinks.slice(0, 4).map((social, idx) => (
-                  <motion.a
-                    key={idx}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`p-2 rounded-lg bg-white/5 ${social.bgColor} transition-all duration-300 ${social.color}`}
-                  >
-                    {social.icon}
-                  </motion.a>
-                ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full lg:w-auto">
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#0D0D0C] text-[#FBF6EF] font-bold text-sm hover:bg-[#252523] transition-all hover:scale-[1.02] shadow-sm"
+              >
+                <Mail className="w-4 h-4" />
+                <span>Initiate Contact</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+
+              <button
+                onClick={handleCopyEmail}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#FBF6EF] hover:bg-[#F2ECDF] text-[#0D0D0C] border border-[#0D0D0C]/15 text-sm font-medium transition-all"
+                aria-label="Copy email address"
+              >
+                {copied ? (
+                  <>
+                    <Check className="w-4 h-4 text-[#3FB874]" />
+                    <span className="text-[#3FB874] font-semibold">Email Copied!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-4 h-4 text-[#F2772F]" />
+                    <span>Copy Email</span>
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer Navigation Columns */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-16 border-b border-[#0D0D0C]/10">
+          {/* Identity Column */}
+          <div className="md:col-span-2 space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-[#0D0D0C] p-[1.5px] shadow-sm flex items-center justify-center">
+                <span className="font-bold text-[#FBF6EF] text-base">
+                  AS
+                </span>
               </div>
-            </motion.div>
-
-            {/* Quick Links */}
-            <motion.div variants={itemVariants}>
-              <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                <span className="w-8 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></span>
-                Quick Links
-              </h3>
-              <ul className="space-y-3">
-                {quickLinks.map((link, idx) => (
-                  <motion.li
-                    key={idx}
-                    whileHover={{ x: 5 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    <Link 
-                      to={link.path} 
-                      className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group"
-                    >
-                      <span className="text-lg">{link.icon}</span>
-                      <span>{link.name}</span>
-                      <ChevronUp className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all rotate-90" />
-                    </Link>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-
-            {/* Contact Info */}
-            <motion.div variants={itemVariants}>
-              <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                <span className="w-8 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></span>
-                Contact Info
-              </h3>
-              <div className="space-y-3">
-                <motion.a 
-                  href="mailto:ashmeetsingh022@gmail.com"
-                  whileHover={{ x: 5 }}
-                  className="flex items-center gap-3 text-gray-400 hover:text-blue-400 transition-colors group"
-                >
-                  <div className="p-2 rounded-lg bg-white/5 group-hover:bg-blue-500/20 transition-colors">
-                    <Mail size={16} />
-                  </div>
-                  <span className="text-sm">ashmeetsingh022@gmail.com</span>
-                </motion.a>
-                
-                <motion.a 
-                  href="tel:+917083583127"
-                  whileHover={{ x: 5 }}
-                  className="flex items-center gap-3 text-gray-400 hover:text-green-400 transition-colors group"
-                >
-                  <div className="p-2 rounded-lg bg-white/5 group-hover:bg-green-500/20 transition-colors">
-                    <Phone size={16} />
-                  </div>
-                  <span className="text-sm">+91 7083583127</span>
-                </motion.a>
-                
-                <motion.div 
-                  whileHover={{ x: 5 }}
-                  className="flex items-center gap-3 text-gray-400"
-                >
-                  <div className="p-2 rounded-lg bg-white/5">
-                    <MapPin size={16} />
-                  </div>
-                  <span className="text-sm">Pune, India</span>
-                </motion.div>
-
-                <motion.a 
-                  href="https://frontend-workwagon.vercel.app/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  whileHover={{ x: 5 }}
-                  className="flex items-center gap-3 text-gray-400 hover:text-pink-400 transition-colors group"
-                >
-                  <div className="p-2 rounded-lg bg-white/5 group-hover:bg-pink-500/20 transition-colors">
-                    <Globe size={16} />
-                  </div>
-                  <span className="text-sm">WorkWagon Project</span>
-                </motion.a>
+              <div>
+                <h3 className="font-bold text-lg text-[#0D0D0C]">Ashmeet Singh</h3>
+                <p className="text-xs text-[#0D0D0C]/56 font-mono tracking-wider">FULL-STACK SOFTWARE ENGINEER</p>
               </div>
-            </motion.div>
+            </div>
 
-            {/* Newsletter / Quote */}
-            <motion.div variants={itemVariants}>
-              <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                <span className="w-8 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></span>
-                Let's Connect
-              </h3>
-              <div className="space-y-4">
-                <p className="text-sm text-gray-400 leading-relaxed">
-                  "Building digital solutions that make a difference. Let's work together on your next project!"
-                </p>
-                <motion.a
-                  href="/resume"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg text-white text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                  <Send size={16} />
-                  Hire Me
-                </motion.a>
-              </div>
-            </motion.div>
+            <p className="text-[#0D0D0C]/65 text-sm max-w-md leading-relaxed">
+              MERN Stack specialist passionate about crafting high-performance, elegant, and secure digital products. Based in India, open to global opportunities.
+            </p>
+
+            <div className="flex items-center gap-2 text-xs text-[#0D0D0C]/56 pt-1">
+              <MapPin className="w-3.5 h-3.5 text-[#F2772F]" />
+              <span>{personalInfo.location}</span>
+            </div>
           </div>
 
-          {/* Social Media Bar */}
-          <motion.div variants={itemVariants} className="mb-8">
-            <div className="flex flex-wrap justify-center gap-3">
-              {socialLinks.map((social, idx) => (
-                <motion.a
-                  key={idx}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1, y: -3 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`group relative p-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-300 ${social.color}`}
-                >
-                  {social.icon}
-                  <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-xs bg-gray-800 text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                    {social.name}
-                  </span>
-                </motion.a>
+          {/* Quick Links */}
+          <div className="space-y-4">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-[#0D0D0C]">Navigation</h4>
+            <ul className="space-y-2.5 text-sm">
+              {navLinks.map((item) => (
+                <li key={item.path}>
+                  <Link
+                    to={item.path}
+                    className="text-[#0D0D0C]/65 hover:text-[#0D0D0C] transition-colors inline-block"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
               ))}
-            </div>
-          </motion.div>
+            </ul>
+          </div>
 
-          {/* Divider with Animation */}
-          <motion.div 
-            variants={itemVariants}
-            className="relative"
-          >
-            <div className="border-t border-white/10 my-6"></div>
-            <motion.div 
-              className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full"
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              transition={{ duration: 0.8 }}
-            />
-          </motion.div>
-
-          {/* Bottom Section */}
-          <motion.div 
-            variants={itemVariants}
-            className="flex flex-col md:flex-row justify-between items-center gap-4 text-center"
-          >
-            <p className="text-sm text-gray-400">
-              © 2025 <span className="text-white font-medium">Ashmeet Singh Renu</span>, All Rights Reserved.
-            </p>
-            
-            <div className="flex items-center gap-2 text-xs text-gray-400">
-              <span>Developer</span>
-              <motion.div
-                animate={{ 
-                  scale: [1, 1.2, 1],
-                  color: ['#ef4444', '#ec4899', '#ef4444']
-                }}
-                transition={{ duration: 1, repeat: Infinity, repeatDelay: 2 }}
-              >
-                <Heart size={14} className="text-red-500 fill-red-500" />
-              </motion.div>
-              <span>Ashmeet Singh Renu</span>
-            </div>
-          </motion.div>
+          {/* Social Profiles */}
+          <div className="space-y-4">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-[#0D0D0C]">Connect</h4>
+            <ul className="space-y-2.5 text-sm">
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <li key={social.name}>
+                    <a
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-[#0D0D0C]/65 hover:text-[#0D0D0C] transition-colors group"
+                    >
+                      <Icon className="w-4 h-4 text-[#0D0D0C]/60 group-hover:text-[#0D0D0C] transition-colors" />
+                      <span>{social.name}</span>
+                      <ArrowUpRight className="w-3 h-3 text-[#0D0D0C]/30 group-hover:text-[#0D0D0C] transition-colors" />
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
-      </motion.div>
+
+        {/* Bottom Bar & Scroll to Top */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#0D0D0C]/50">
+          <p>
+            © {new Date().getFullYear()} Ashmeet Singh. Designed & Engineered with standard aesthetic integrity.
+          </p>
+
+          <button
+            onClick={scrollToTop}
+            className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white hover:bg-[#F2ECDF] text-[#0D0D0C] border border-[#0D0D0C]/10 transition-all shadow-sm"
+            aria-label="Scroll back to top"
+          >
+            <span>Back to top</span>
+            <ChevronUp className="w-4 h-4 text-[#F2772F] group-hover:-translate-y-0.5 transition-transform" />
+          </button>
+        </div>
+      </div>
     </footer>
   );
 };
