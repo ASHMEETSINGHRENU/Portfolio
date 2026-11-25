@@ -155,7 +155,7 @@ export const industryProjects = [
     category: "Commercial Client Work",
     badge: "Live Industry Brand",
     isCommercial: true,
-    year: "2024 - 2025"
+    year: "2025 - 2026"
   },
   {
     id: "ind-2",
@@ -180,7 +180,7 @@ export const industryProjects = [
     category: "Commercial Client Work",
     badge: "Live Industry Brand",
     isCommercial: true,
-    year: "2024 - 2025"
+    year: "2025 - 2026"
   },
   {
     id: "ind-3",
@@ -206,7 +206,7 @@ export const industryProjects = [
     category: "Commercial Client Work",
     badge: "Live E-Commerce",
     isCommercial: true,
-    year: "2024 - 2025"
+    year: "2025 - 2026"
   },
   {
     id: "ind-4",
@@ -232,7 +232,7 @@ export const industryProjects = [
     category: "Commercial Client Work",
     badge: "Live Industry Brand",
     isCommercial: true,
-    year: "2024 - 2025"
+    year: "2025 - 2026"
   },
   {
     id: "ind-5",
@@ -257,7 +257,7 @@ export const industryProjects = [
     category: "Commercial Client Work",
     badge: "Live Nightlife Brand",
     isCommercial: true,
-    year: "2024 - 2025"
+    year: "2025 - 2026"
   }
 ];
 

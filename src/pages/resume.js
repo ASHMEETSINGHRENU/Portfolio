@@ -32,9 +32,9 @@ const Resume = () => {
   ];
 
   const quickInfo = [
-    { icon: GraduationCap, label: "Current Education", value: "MCA (Pursuing)", detail: "D Y Patil University, Pune" },
+    { icon: GraduationCap, label: "Current Education", value: "MCA (AI & ML)", detail: "D Y Patil University, Pune (2024 – 2026)" },
     { icon: Award, label: "International Exposure", value: "Mobility Program", detail: "INTI International University, Malaysia" },
-    { icon: Code, label: "Core Specialization", value: "MERN & Full-Stack", detail: "React, Node, Express, MongoDB" },
+    { icon: Code, label: "Core Specialization", value: "Full Stack & MERN", detail: "React, TypeScript, Node.js, Express, MongoDB" },
     { icon: ShieldCheck, label: "Availability Status", value: "Immediate", detail: "Open to High-Impact Opportunities" }
   ];
 

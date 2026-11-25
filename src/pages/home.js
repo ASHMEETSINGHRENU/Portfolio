@@ -39,41 +39,24 @@ const Home = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-[94vh] flex items-center pt-28 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        {/* Full Background Video Banner */}
-        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover object-center"
-          >
-            <source
-              src="https://pub-86dc5b5484314368ac5436a674b0d919.r2.dev/cloudinarry%20to%20cloudflare/202606021731-e_hqa6sn.mp4"
-              type="video/mp4"
-            />
-          </video>
-          {/* Vela cream gradient overlay to preserve readability and luxury aesthetic */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FBF6EF]/92 via-[#FBF6EF]/75 to-[#FBF6EF]/35" />
-          {/* Subtle bottom fade transition into the page */}
-          <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#FBF6EF] to-transparent" />
-          {/* Grain texture */}
-          <div className="absolute inset-0 bg-paper-grain opacity-40 mix-blend-multiply pointer-events-none" />
-        </div>
+      <section className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-paper-grain">
+        {/* Soft Pastel Radial Glows from Vela palette */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-gradient-to-tr from-[#F8DCC7]/40 via-[#F4EBC6]/30 to-[#DFE9D4]/40 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute top-20 -left-20 w-80 h-80 bg-[#F4EBC6]/40 rounded-full blur-[90px] pointer-events-none" />
+        <div className="absolute bottom-10 -right-20 w-96 h-96 bg-[#ECD6E2]/40 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto w-full relative z-10">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
             
-            {/* Left Column: Hero Text (Maintained in exact position) */}
+            {/* Left Column: Hero Text */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="max-w-2xl lg:max-w-3xl text-left space-y-6"
+              className="flex-1 text-center lg:text-left space-y-6"
             >
               {/* Availability Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 backdrop-blur-md border border-[#0D0D0C]/10 shadow-card-soft text-xs font-semibold text-[#0D0D0C]">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#0D0D0C]/10 shadow-card-soft text-xs font-semibold text-[#0D0D0C]">
                 <span className="w-2 h-2 rounded-full bg-[#3FB874] animate-pulse" />
                 <span>{personalInfo.availability}</span>
               </div>
@@ -90,7 +73,7 @@ const Home = () => {
               </div>
 
               {/* Typewriter Subtitle */}
-              <div className="text-lg sm:text-2xl font-normal text-[#0D0D0C]/80 h-10 flex items-center justify-start">
+              <div className="text-lg sm:text-2xl font-normal text-[#0D0D0C]/80 h-10 flex items-center justify-center lg:justify-start">
                 <span className="text-[#0D0D0C]/56 mr-2">I build</span>
                 <span className="text-[#0D0D0C] font-semibold border-b-2 border-[#F2772F]">
                   <Typewriter
@@ -112,12 +95,12 @@ const Home = () => {
               </div>
 
               {/* Bio summary */}
-              <p className="text-[#0D0D0C]/65 text-sm md:text-base max-w-xl leading-relaxed">
+              <p className="text-[#0D0D0C]/65 text-sm md:text-base max-w-xl mx-auto lg:mx-0 leading-relaxed">
                 {personalInfo.tagline} Currently pursuing Master of Computer Applications (MCA) at DY Patil University with international exchange background in Malaysia.
               </p>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center justify-start gap-4 pt-4">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
                 <Link
                   to="/projects"
                   className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0D0D0C] text-[#FBF6EF] font-bold text-sm hover:bg-[#252523] hover:scale-[1.02] transition-all shadow-md"
@@ -128,7 +111,7 @@ const Home = () => {
 
                 <Link
                   to="/resume"
-                  className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-white/90 backdrop-blur-sm hover:bg-[#F4F2ED] text-[#0D0D0C] font-medium text-sm border border-[#0D0D0C]/15 transition-all shadow-sm"
+                  className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-white hover:bg-[#F4F2ED] text-[#0D0D0C] font-medium text-sm border border-[#0D0D0C]/15 transition-all shadow-sm"
                 >
                   <Download className="w-4 h-4 text-[#F2772F]" />
                   <span>Executive Resume</span>
@@ -136,12 +119,12 @@ const Home = () => {
               </div>
 
               {/* Social Handles */}
-              <div className="flex items-center justify-start gap-3 pt-4">
+              <div className="flex items-center justify-center lg:justify-start gap-3 pt-4">
                 <a
                   href={personalInfo.socials.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-white/90 backdrop-blur-sm border border-[#0D0D0C]/10 text-[#0D0D0C] hover:bg-[#0D0D0C] hover:text-[#FBF6EF] transition-all shadow-sm"
+                  className="p-3 rounded-full bg-white border border-[#0D0D0C]/10 text-[#0D0D0C] hover:bg-[#0D0D0C] hover:text-[#FBF6EF] transition-all shadow-sm"
                   aria-label="GitHub Profile"
                 >
                   <Github className="w-4 h-4" />
@@ -150,7 +133,7 @@ const Home = () => {
                   href={personalInfo.socials.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-white/90 backdrop-blur-sm border border-[#0D0D0C]/10 text-[#0D0D0C] hover:bg-[#0D0D0C] hover:text-[#FBF6EF] transition-all shadow-sm"
+                  className="p-3 rounded-full bg-white border border-[#0D0D0C]/10 text-[#0D0D0C] hover:bg-[#0D0D0C] hover:text-[#FBF6EF] transition-all shadow-sm"
                   aria-label="LinkedIn Profile"
                 >
                   <Linkedin className="w-4 h-4" />
@@ -159,18 +142,53 @@ const Home = () => {
                   href={personalInfo.socials.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-white/90 backdrop-blur-sm border border-[#0D0D0C]/10 text-[#0D0D0C] hover:bg-[#0D0D0C] hover:text-[#FBF6EF] transition-all shadow-sm"
+                  className="p-3 rounded-full bg-white border border-[#0D0D0C]/10 text-[#0D0D0C] hover:bg-[#0D0D0C] hover:text-[#FBF6EF] transition-all shadow-sm"
                   aria-label="Instagram Profile"
                 >
                   <Instagram className="w-4 h-4" />
                 </a>
                 <a
                   href={personalInfo.socials.email}
-                  className="p-3 rounded-full bg-white/90 backdrop-blur-sm border border-[#0D0D0C]/10 text-[#0D0D0C] hover:bg-[#0D0D0C] hover:text-[#FBF6EF] transition-all shadow-sm"
+                  className="p-3 rounded-full bg-white border border-[#0D0D0C]/10 text-[#0D0D0C] hover:bg-[#0D0D0C] hover:text-[#FBF6EF] transition-all shadow-sm"
                   aria-label="Send Direct Email"
                 >
                   <Mail className="w-4 h-4" />
                 </a>
+              </div>
+            </motion.div>
+
+            {/* Right Column: Luxury Profile Avatar Card */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="flex-1 flex justify-center lg:justify-end"
+            >
+              <div className="relative group">
+                {/* Glowing Outer Rings */}
+                <div className="absolute -inset-2 bg-gradient-to-r from-[#F9CBA9] via-[#F4EBC6] to-[#DFE9D4] rounded-full blur-2xl opacity-70 group-hover:opacity-95 transition duration-700 animate-pulse-slow" />
+                <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full p-2.5 bg-white/80 border border-[#0D0D0C]/10 backdrop-blur-3xl shadow-vela overflow-hidden">
+                  <div className="w-full h-full rounded-full overflow-hidden bg-gradient-to-b from-[#FBF6EF] via-[#F4F2ED] to-[#EAE6DD] relative flex items-end justify-center">
+                    <img
+                      src={require("../assets/profile/profile.jpg-Photoroom.png")}
+                      alt="Ashmeet Singh"
+                      className="w-full h-full object-cover object-top scale-105 group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0C]/15 via-transparent to-transparent pointer-events-none" />
+                  </div>
+                </div>
+
+                {/* Floating Status Pill */}
+                <motion.div
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-5 py-2.5 rounded-full bg-white border border-[#0D0D0C]/10 backdrop-blur-xl shadow-vela flex items-center gap-2 whitespace-nowrap z-20"
+                >
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#3FB874] animate-pulse" />
+                  <span className="text-xs font-bold text-[#0D0D0C] tracking-wide">
+                    MCA Scholar & MERN Developer
+                  </span>
+                </motion.div>
               </div>
             </motion.div>
           </div>
