@@ -6,12 +6,12 @@ import {
   Github, 
   Eye, 
   Building2, 
-  ArrowUpRight
+  ArrowUpRight,
+  ChevronDown
 } from "lucide-react";
 import Navbar from '../components/navbar';
 import Footer from "../components/footer";
 import ProjectModal from '../components/ProjectModal';
-import FolioBookHero from '../components/FolioBookHero';
 import { projects, industryProjects } from '../data/portfolioData';
 
 const Project = () => {
@@ -42,15 +42,27 @@ const Project = () => {
     <div className="min-h-screen bg-[#FBF6EF] text-[#0D0D0C] font-interTight flex flex-col relative selection:bg-[#F9CBA9] selection:text-[#0D0D0C]">
       <Navbar />
 
-      {/* 3D Folio Bookshop Spring Wave Hero */}
-      <section className="pt-20 sm:pt-24 border-b border-[#0D0D0C]/08">
-        <FolioBookHero
-          filteredProjects={filteredProjects}
-          activeFilter={activeFilter}
-          setActiveFilter={setActiveFilter}
-          filterOptions={filterOptions}
-          onSelectProject={(project) => setSelectedProject(project)}
-        />
+      {/* Foldworld — Interactive 3D Carousel Pop-Up Book Stage */}
+      <section className="pt-20 sm:pt-24 relative bg-[#FBF6EF] border-b border-[#0D0D0C]/10">
+        <div className="relative w-full h-[calc(100vh-5rem)] sm:h-[calc(100vh-6rem)] min-h-[620px] max-h-[960px] bg-[#3b322b] overflow-hidden">
+          <iframe
+            src={`${process.env.PUBLIC_URL || ""}/foldworld.html`}
+            title="Foldworld — Interactive 3D Carousel Pop-Up Book"
+            className="w-full h-full border-0 block"
+            allow="accelerometer; autoplay; fullscreen"
+          />
+        </div>
+
+        {/* Clean transition bar to scroll straight to the Projects Catalog */}
+        <div className="bg-[#FBF6EF] py-3.5 px-4 border-t border-[#0D0D0C]/08 flex items-center justify-center">
+          <a
+            href="#catalog"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white hover:bg-[#0D0D0C] text-[#0D0D0C] hover:text-[#FBF6EF] border border-[#0D0D0C]/12 text-xs font-medium transition-all duration-300 shadow-sm"
+          >
+            <span>Explore Engineered Works Catalog</span>
+            <ChevronDown className="w-3.5 h-3.5" />
+          </a>
+        </div>
       </section>
 
       {/* Main Content Area: Curated Projects Catalog */}
@@ -61,20 +73,48 @@ const Project = () => {
 
         <div className="max-w-7xl mx-auto">
           {/* Section Sub-header */}
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12 pb-6 border-b border-[#0D0D0C]/08">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-[#0D0D0C]/10 text-xs font-medium text-[#F2772F] shadow-sm mb-3">
-                <FolderGit2 className="w-3.5 h-3.5 text-[#F2772F]" />
-                <span>Engineered Works Catalog</span>
+          <div className="flex flex-col gap-6 mb-12 pb-6 border-b border-[#0D0D0C]/08">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-[#0D0D0C]/10 text-xs font-medium text-[#F2772F] shadow-sm mb-3">
+                  <FolderGit2 className="w-3.5 h-3.5 text-[#F2772F]" />
+                  <span>Engineered Works Catalog</span>
+                </div>
+                <h2 className="text-2xl sm:text-4xl font-semibold tracking-tight text-[#0D0D0C]">
+                  {filterOptions.find(f => f.id === activeFilter)?.label || "Selected Projects"}
+                </h2>
               </div>
-              <h2 className="text-2xl sm:text-4xl font-semibold tracking-tight text-[#0D0D0C]">
-                {filterOptions.find(f => f.id === activeFilter)?.label || "Selected Projects"}
-              </h2>
+
+              <p className="text-xs sm:text-sm text-[#0D0D0C]/60 font-medium">
+                Showing <span className="text-[#0D0D0C] font-bold">{filteredProjects.length}</span> verified production systems
+              </p>
             </div>
 
-            <p className="text-xs sm:text-sm text-[#0D0D0C]/60 font-medium">
-              Showing <span className="text-[#0D0D0C] font-bold">{filteredProjects.length}</span> verified production systems
-            </p>
+            {/* Category Filter Pills */}
+            <div className="flex flex-wrap items-center gap-2">
+              {filterOptions.map((opt) => (
+                <button
+                  key={opt.id}
+                  onClick={() => setActiveFilter(opt.id)}
+                  className={`px-4 py-2 rounded-full text-xs font-medium transition-all duration-300 flex items-center gap-2 shadow-sm ${
+                    activeFilter === opt.id
+                      ? "bg-[#0D0D0C] text-[#FBF6EF] scale-105 shadow-md"
+                      : "bg-white text-[#0D0D0C]/75 hover:bg-[#F4F2ED] hover:text-[#0D0D0C] border border-[#0D0D0C]/10"
+                  }`}
+                >
+                  <span>{opt.label}</span>
+                  <span
+                    className={`text-[10px] px-2 py-0.5 rounded-full ${
+                      activeFilter === opt.id
+                        ? "bg-white/20 text-[#FBF6EF]"
+                        : "bg-[#0D0D0C]/08 text-[#0D0D0C]/60"
+                    }`}
+                  >
+                    {opt.count}
+                  </span>
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Projects Grid */}
